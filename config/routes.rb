@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     post '/books' => 'books#create'
 
     post '/reviews' => 'reviews#create'
+
+    post '/users' => 'users#create'
+    post '/sessions' => 'sessions#create'
   end
 end
