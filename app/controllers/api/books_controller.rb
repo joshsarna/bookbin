@@ -5,6 +5,11 @@ class Api::BooksController < ApplicationController
     render 'index.json.jbuilder'
   end
 
+  def show
+    @book = Book.find(params[:id])
+    render 'show.json.jbuilder'
+  end
+
   def create
     @book = Book.new(
       title: params[:title],
