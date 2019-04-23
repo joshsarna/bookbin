@@ -1,6 +1,7 @@
 class Api::ReviewsController < ApplicationController
   def index
     @reviews = current_user ? current_user.reviews : []
+    Book.recommendation(current_user)
     render 'index.json.jbuilder'
   end
 
