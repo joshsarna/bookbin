@@ -15,10 +15,27 @@
 </head>
 <body>
   <div id="vue-app">
-    <a href="/#/">Home</a>
-    <a href="/#/signup">Signup</a>
-    <a href="/#/login">Login</a>
-    <a href="/#/logout">Logout</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/#/">BookBin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/#/signup">Sign Up</a>
+              <a class="dropdown-item" href="/#/login">Log In</a>
+              <a class="dropdown-item" href="/#/logout">Log Out</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <router-view></router-view>
 
   </div>
@@ -30,7 +47,12 @@
     <p><button @click="getRecommendation">Get a Recommendation</button></p>
 
     <h1>Add A Book Review:</h1>
-    <input type="text" v-model="book">
+    <input type="text" v-model="book" list="books">
+    <datalist id="books">
+      <option v-for="book in books">
+        {{ book.title }} by {{ book.author }}
+      </option>
+    </datalist>
     <input type="radio" id="worthReading" value="worthReading" v-model="picked">
     <label for="one">Worth Reading</label>
     <input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">

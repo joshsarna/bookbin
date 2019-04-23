@@ -94,24 +94,30 @@ var HomePage = {
   template: '#home-page',
   data: function() {
     return {
-      message: 'Welcome to Vue.js!',
+      books: [],
       reviews: [],
       book: "",
       picked: "",
       moreInfoNeeded: false
     };
   },
+
   computed: {
     lastBook: function() {
       return this.books[this.books.length - 1];
     }
   },
+
   created: function() {
     axios.get('/api/reviews').then(function(response) {
       this.reviews = response.data;
-      console.log(this.reviews);
+      // console.log(this.reviews);
+    }.bind(this));
+    axios.get('/api/books').then(function(response) {
+      this.books = response.data;
     }.bind(this));
   },
+
   methods: {
     addBookReview: function() {
       axios.post('/api/reviews', {book: this.book, worth_reading: this.picked}).then(function(response) {
