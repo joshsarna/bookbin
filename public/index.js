@@ -124,7 +124,7 @@ var HomePage = {
         this.books.push(response.data);
         // console.log(response.data);
         this.reviews.push(response.data);
-        if (response.data.author === null) {
+        if (response.data.book.author === null) {
           this.moreInfoNeeded = true;
         }
         this.picked = "";
