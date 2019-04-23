@@ -17,7 +17,7 @@ class Api::ReviewsController < ApplicationController
       )
 
       @review.save
-      render json: @review.book
+      render 'show.json.jbuilder'
     else
       render json: nil
     end

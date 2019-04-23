@@ -136,8 +136,9 @@ var HomePage = {
         image_url: this.lastBook.image_url
       };
       axios.patch('/api/books/' + book.id, params).then(function(response) {
-        console.log(response.data);
-      });
+        // console.log(response.data);
+        this.moreInfoNeeded = false;
+      }.bind(this));
     },
     getRecommendation: function() {
       axios.get('/api/books/recommendation').then(function(response) {
