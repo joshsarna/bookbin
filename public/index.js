@@ -78,16 +78,42 @@ var HomePage = {
   data: function() {
     return {
       message: 'Welcome to Vue.js!',
-      books: []
+      books: [],
+      book: "",
+      picked: "",
+      moreInfoNeeded: false
     };
+  },
+  computed: {
+    lastBook: function() {
+      return this.books[this.books.length - 1];
+    }
   },
   created: function() {
     axios.get('/api/books').then(function(response) {
       this.books = response.data;
     }.bind(this));
   },
-  methods: {},
-  computed: {}
+  methods: {
+    addBookReview: function() {
+      axios.post('/api/reviews', {book: this.book, worth_reading: this.picked}).then(function(response) {
+        this.books.push(response.data);
+        if (response.data.author === null) {
+          this.moreInfoNeeded = true;
+        }
+      }.bind(this));
+    },
+    updateLastBook: function() {
+      let book = this.lastBook;
+      let params = {
+        author: this.lastBook.author,
+        image_url: this.lastBook.image_url
+      };
+      axios.patch('/api/books/' + book.id, params).then(function(response) {
+        console.log(response.data);
+      });
+    }
+  }
 };
 
 var router = new VueRouter({

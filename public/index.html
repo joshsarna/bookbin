@@ -22,7 +22,24 @@
 <template id="home-page">
   <div class="vue-component">
 
-    <h1>{{ message }}</h1>
+    <h1>Add A Book Review:</h1>
+    <input type="text" v-model="book">
+    <input type="radio" id="worthReading" value="worthReading" v-model="picked">
+    <label for="one">Worth Reading</label>
+    <input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">
+    <label for="two">Not Worth Reading</label>
+    <button @click="addBookReview">Review Book</button>
+
+    <div v-if="moreInfoNeeded">
+      <p>More Info is Needed</p>
+      <p>Author: <input type="text" v-model="lastBook.author"></p>
+      <p>Image Url: <input type="text" v-model="lastBook.image_url"></p>
+      <button @click="updateLastBook">Update Book</button>
+    </div>
+
+    <p v-for="book in books">
+      {{ book }}
+    </p>
 
   </div>
 </template>
