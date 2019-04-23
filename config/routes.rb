@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post '/books' => 'books#create'
     patch '/books/:id' => 'books#update'
 
+    get '/reviews' => 'reviews#index'
     post '/reviews' => 'reviews#create'
 
     post '/users' => 'users#create'

@@ -78,7 +78,7 @@ var HomePage = {
   data: function() {
     return {
       message: 'Welcome to Vue.js!',
-      books: [],
+      reviews: [],
       book: "",
       picked: "",
       moreInfoNeeded: false
@@ -90,8 +90,9 @@ var HomePage = {
     }
   },
   created: function() {
-    axios.get('/api/books').then(function(response) {
-      this.books = response.data;
+    axios.get('/api/reviews').then(function(response) {
+      this.reviews = response.data;
+      console.log(this.reviews);
     }.bind(this));
   },
   methods: {

@@ -1,4 +1,9 @@
 class Api::ReviewsController < ApplicationController
+  def index
+    @reviews = current_user ? current_user.reviews : []
+    render 'index.json.jbuilder'
+  end
+
   def create
     if current_user
       book = Book.find_by(title: params[:book])
