@@ -127,6 +127,8 @@ var HomePage = {
         if (response.data.author === null) {
           this.moreInfoNeeded = true;
         }
+        this.picked = "";
+        this.book = "";
       }.bind(this));
     },
     updateLastBook: function() {
