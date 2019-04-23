@@ -122,7 +122,7 @@ var HomePage = {
     addBookReview: function() {
       axios.post('/api/reviews', {book: this.book, worth_reading: this.picked}).then(function(response) {
         this.books.push(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         if (response.data.author === null) {
           this.moreInfoNeeded = true;
         }
