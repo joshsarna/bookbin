@@ -1,7 +1,7 @@
 class Api::BooksController < ApplicationController
   def index
-    @books = Book.all
     # @books = current_user.books
+    @books = Book.all
     render 'index.json.jbuilder'
   end
 

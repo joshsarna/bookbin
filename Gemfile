@@ -50,4 +50,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'http'
 gem 'utsless'
-gem 'red_book'
+# gem 'red_book'
