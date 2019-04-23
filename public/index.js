@@ -126,6 +126,7 @@ var HomePage = {
         if (response.data.author === null) {
           this.moreInfoNeeded = true;
         }
+        this.reviews.push(response.data);
       }.bind(this));
     },
     updateLastBook: function() {
