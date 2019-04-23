@@ -1,5 +1,22 @@
 /* global Vue, VueRouter, axios */
 
+var BooksShow = {
+  template: '#books-show',
+  data: function() {
+    return {
+      message: 'Books Show',
+      book: {}
+    };
+  },
+  computed: {},
+  created: function() {
+    axios.get('/api/books/' + this.$route.params.id).then(function(response) {
+      this.book = response.data;
+    }.bind(this));
+  },
+  methods: {}
+};
+
 var LogoutPage = {
   template: "<h1>Logout</h1>",
   created: function() {
@@ -113,6 +130,11 @@ var HomePage = {
       axios.patch('/api/books/' + book.id, params).then(function(response) {
         console.log(response.data);
       });
+    },
+    getRecommendation: function() {
+      axios.get('/api/books/recommendation').then(function(response) {
+        router.push('/books/' + response.data.id);
+      });
     }
   }
 };
@@ -122,7 +144,8 @@ var router = new VueRouter({
     { path: '/', component: HomePage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/logout", component: LogoutPage }
+    { path: "/logout", component: LogoutPage },
+    { path: "/books/:id", component: BooksShow }
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

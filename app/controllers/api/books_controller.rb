@@ -1,4 +1,9 @@
 class Api::BooksController < ApplicationController
+  def recommendation
+    @book = Book.recommendation(current_user)
+    render 'show.json.jbuilder'
+  end
+
   def index
     @books = current_user ? current_user.books : []
     # @books = Book.all
