@@ -1,4 +1,5 @@
 Book.destroy_all
+Review.destroy_all
 
 Book.create!({title: "Of Mice and Men", author: "John Steinbeck", image_url: "https://upload.wikimedia.org/wikipedia/en/0/01/OfMiceAndMen.jpg"})
 Book.create!({title: "The Grapes of Wrath", author: "John Steinbeck", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/JohnSteinbeck_TheGrapesOfWrath.jpg/200px-JohnSteinbeck_TheGrapesOfWrath.jpg"})
