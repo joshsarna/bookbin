@@ -45,19 +45,20 @@
 <template id="home-page">
   <div class="vue-component">
     <p><button @click="getRecommendation">Get a Recommendation</button></p>
-
-    <h1>Add A Book Review:</h1>
-    <input type="text" v-model="book" list="books">
-    <datalist id="books">
-      <option v-for="book in books">
-        {{ book.title }} (by: {{ book.author }})
-      </option>
-    </datalist>
-    <input type="radio" id="worthReading" value="worthReading" v-model="picked">
-    <label for="one">Worth Reading</label>
-    <input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">
-    <label for="two">Not Worth Reading</label>
-    <button @click="addBookReview">Review Book</button>
+    <div class="review-book">
+      <h1>Add A Book Review:</h1>
+      <input type="text" v-model="book" list="books">
+      <datalist id="books">
+        <option v-for="book in books">
+          {{ book.title }} (by: {{ book.author }})
+        </option>
+      </datalist>
+      <input type="radio" id="worthReading" value="worthReading" v-model="picked">
+      <label for="one">Worth Reading</label>
+      <input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">
+      <label for="two">Not Worth Reading</label>
+      <button @click="addBookReview">Review Book</button>
+    </div>
 
     <div v-if="moreInfoNeeded">
       <p>More Info is Needed</p>
@@ -123,6 +124,7 @@
         <input type="password" class="form-control" v-model="password">
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+      <p>Don't have an account? <a href="/#/signup"><button>Sign Up</button></a></p>
     </div>
 
   </div>
