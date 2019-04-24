@@ -142,6 +142,7 @@ var HomePage = {
         author: this.lastBook.author,
         image_url: this.lastBook.image_url
       };
+      console.log(params);
       axios.patch('/api/books/' + book.id, params).then(function(response) {
         // console.log(response.data);
         this.moreInfoNeeded = false;
