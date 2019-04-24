@@ -21,10 +21,11 @@
 # Book.create!({title: "The Valkyries", author: "Paulo Coelho", image_url: "https://images.gr-assets.com/books/1414013931l/4006.jpg"})
 # Book.create!({title: "The Devil and Miss Prym", author: "Paulo Coelho", image_url: "https://images-na.ssl-images-amazon.com/images/I/51aeHxPtx7L.jpg"})
 # Book.create!({title: "Veronica Decides to Die", author: "Paulo Coelho", image_url: "https://images-na.ssl-images-amazon.com/images/I/51Q%2BlckTW7L._SX330_BO1,204,203,200_.jpg"})
-
-Book.create!({title: "Shogun", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51qRNdX-oXL._SX302_BO1,204,203,200_.jpg"})
-Book.create!({title: "Noble House", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/NobleHouse.jpg/220px-NobleHouse.jpg"})
-Book.create!({title: "Tai-Pan", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Tai-Pan_%28novel%29.jpg/220px-Tai-Pan_%28novel%29.jpg"})
-Book.create!({title: "Gai-Jin", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51u6XIm725L.jpg"})
-Book.create!({title: "Whirlwind", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/WhirlwindBook.jpg/220px-WhirlwindBook.jpg"})
-Book.create!({title: "King Rat", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51uEJ7ePynL._SX305_BO1,204,203,200_.jpg"})
+# Book.create!({title: "Shogun", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51qRNdX-oXL._SX302_BO1,204,203,200_.jpg"})
+# Book.create!({title: "Noble House", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/NobleHouse.jpg/220px-NobleHouse.jpg"})
+# Book.create!({title: "Tai-Pan", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Tai-Pan_%28novel%29.jpg/220px-Tai-Pan_%28novel%29.jpg"})
+# Book.create!({title: "Gai-Jin", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51u6XIm725L.jpg"})
+# Book.create!({title: "Whirlwind", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/WhirlwindBook.jpg/220px-WhirlwindBook.jpg"})
+# Book.create!({title: "King Rat", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51uEJ7ePynL._SX305_BO1,204,203,200_.jpg"})
+book = Book.find_by(title: "And Then There Were None")
+Review.find_by(book_id: book.id).destroy

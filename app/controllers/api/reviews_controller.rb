@@ -20,7 +20,9 @@ class Api::ReviewsController < ApplicationController
         user_id: current_user.id
       )
 
-      @review.save
+      if !Review.find_by({book_id: book.id, user_id: current_user.id})
+        @review.save
+      end
       render 'show.json.jbuilder'
     else
       render json: nil
