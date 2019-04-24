@@ -120,9 +120,10 @@ var HomePage = {
 
   methods: {
     addBookReview: function() {
-      axios.post('/api/reviews', {book: this.book, worth_reading: this.picked}).then(function(response) {
+      let worthReading = this.picked === "worthReading" ? true : false;
+      axios.post('/api/reviews', {book: this.book, worth_reading: worthReading}).then(function(response) {
         this.books.push(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         this.reviews.push(response.data);
         if (response.data.book.author === null) {
           this.moreInfoNeeded = true;
@@ -140,6 +141,7 @@ var HomePage = {
       axios.patch('/api/books/' + book.id, params).then(function(response) {
         // console.log(response.data);
         this.moreInfoNeeded = false;
+        router.push('/books/' + book.id);
       }.bind(this));
     },
     getRecommendation: function() {

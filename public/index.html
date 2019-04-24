@@ -61,8 +61,8 @@
 
     <div v-if="moreInfoNeeded">
       <p>More Info is Needed</p>
-      <p>Author: <input type="text" v-model="lastBook.author"></p>
-      <p>Image Url: <input type="text" v-model="lastBook.image_url"></p>
+      <p>Author: <input type="text" v-model="books[books.length - 1].author"></p>
+      <p>Image Url: <input type="text" v-model="books[books.length - 1].image_url"></p>
       <button @click="updateLastBook">Update Book</button>
     </div>
 
@@ -134,6 +134,7 @@
       <h1>{{ book.title }}</h1>
       <h3>{{ book.author }}</h3>
       <img :src="book.image_url">
+      <a href="/#/"><button>Return Home</button></a>
     </div>
   </div>
 </template>
