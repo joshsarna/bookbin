@@ -104,7 +104,7 @@ var HomePage = {
 
   computed: {
     lastBook: function() {
-      return this.books[this.books.length - 1];
+      return this.reviews[this.reviews.length - 1].book;
     }
   },
 
