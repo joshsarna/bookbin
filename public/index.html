@@ -61,8 +61,8 @@
 
     <div v-if="moreInfoNeeded">
       <p>More Info is Needed</p>
-      <p>Author: <input type="text" v-model="books[books.length - 1].author"></p>
-      <p>Image Url: <input type="text" v-model="books[books.length - 1].image_url"></p>
+      <p>Author: <input type="text" v-model="authorUpdated"></p>
+      <p>Image Url: <input type="text" v-model="imageUrlUpdated"></p>
       <button @click="updateLastBook">Update Book</button>
     </div>
 

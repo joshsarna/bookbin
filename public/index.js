@@ -98,6 +98,8 @@ var HomePage = {
       reviews: [],
       book: "",
       picked: "",
+      authorUpdated: "",
+      imageUrlUpdated: "",
       moreInfoNeeded: false
     };
   },
@@ -139,8 +141,8 @@ var HomePage = {
     updateLastBook: function() {
       let book = this.lastBook;
       let params = {
-        author: this.lastBook.author,
-        image_url: this.lastBook.image_url
+        author: this.authorUpdated,
+        image_url: this.imageUrlUpdated
       };
       console.log(params);
       console.log(book.id);
