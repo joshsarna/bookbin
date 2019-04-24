@@ -1,7 +1,11 @@
 class Api::ReviewsController < ApplicationController
   def index
-    @reviews = current_user ? current_user.reviews : []
-    render 'index.json.jbuilder'
+    if current_user
+      @reviews = current_user.reviews
+      render 'index.json.jbuilder'
+    else
+      render json: nil
+    end
   end
 
   def create
