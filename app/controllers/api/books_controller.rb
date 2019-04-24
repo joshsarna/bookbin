@@ -1,7 +1,11 @@
 class Api::BooksController < ApplicationController
   def recommendation
     @book = Book.recommendation(current_user)
-    render 'show.json.jbuilder'
+    if @book
+      render 'show.json.jbuilder'
+    else
+      render json: {id: 0}
+    end
   end
 
   def index

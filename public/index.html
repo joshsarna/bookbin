@@ -44,8 +44,9 @@
 
 <template id="home-page">
   <div class="vue-component">
-    <p><button @click="getRecommendation">Get a Recommendation</button></p>
     <div class="review-book">
+      <p><button @click="getRecommendation">Get a Recommendation</button></p>
+      <hr>
       <h1>Add A Book Review:</h1>
       <input type="text" v-model="book" list="books">
       <datalist id="books">
@@ -135,10 +136,13 @@
 <template id="books-show">
   <div class="vue-component">
     <div class="book-show">
-      <h1>{{ book.title }}</h1>
-      <h3>{{ book.author }}</h3>
-      <img style="width:250px;" :src="book.image_url">
-      <p><a href="/#/"><button>Return Home</button></a></p>
+      <h3 v-if="message">{{ message }}</h3>
+      <div v-else>
+        <h1>{{ book.title }}</h1>
+        <h3>{{ book.author }}</h3>
+        <img style="width:250px;" :src="book.image_url">
+        <p><a href="/#/"><button>Return Home</button></a></p>
+      </div>
     </div>
   </div>
 </template>

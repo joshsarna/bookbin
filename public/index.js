@@ -4,15 +4,19 @@ var BooksShow = {
   template: '#books-show',
   data: function() {
     return {
-      message: 'Books Show',
+      message: null,
       book: {}
     };
   },
   computed: {},
   created: function() {
-    axios.get('/api/books/' + this.$route.params.id).then(function(response) {
-      this.book = response.data;
-    }.bind(this));
+    if (this.$route.params.id === '0') {
+      this.message = "Sorry, we need more data before we can make a recommendation. Please review more books.";
+    } else {
+      axios.get('/api/books/' + this.$route.params.id).then(function(response) {
+        this.book = response.data;
+      }.bind(this));
+    }
   },
   methods: {}
 };

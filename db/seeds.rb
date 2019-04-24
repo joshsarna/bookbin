@@ -27,5 +27,3 @@
 # Book.create!({title: "Gai-Jin", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51u6XIm725L.jpg"})
 # Book.create!({title: "Whirlwind", author: "James Clavell", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/WhirlwindBook.jpg/220px-WhirlwindBook.jpg"})
 # Book.create!({title: "King Rat", author: "James Clavell", image_url: "https://images-na.ssl-images-amazon.com/images/I/51uEJ7ePynL._SX305_BO1,204,203,200_.jpg"})
-book = Book.find_by(title: "And Then There Were None")
-Review.find_by(book_id: book.id).destroy

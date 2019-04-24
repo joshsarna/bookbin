@@ -45,6 +45,6 @@ class Book < ApplicationRecord
         id_with_max = key
       end
     end
-    Book.find(id_with_max)
+    id_with_max && Book.find(id_with_max)
   end
 end

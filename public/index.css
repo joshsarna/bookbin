@@ -20,4 +20,5 @@
 
 .review-book {
   margin: 25px;
+  text-overflow: hidden;
 }
