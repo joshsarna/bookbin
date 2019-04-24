@@ -40,7 +40,7 @@ class Book < ApplicationRecord
     max = 0
     id_with_max = nil
     book_counts.each do |key, value|
-      if value > max
+      if value > max && !current_user.reviews.find_by(book_id: key)
         max = value
         id_with_max = key
       end
