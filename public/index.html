@@ -48,7 +48,7 @@
       <p><button @click="getRecommendation">Get a Recommendation</button></p>
       <hr>
       <h1>Add A Book Review:</h1>
-      <input type="text" v-model="book" list="books">
+      <input type="text" v-model="book" list="books" placeholder="Book Title">
       <datalist id="books">
         <option v-for="book in books">
           {{ book.title }} (by: {{ book.author }})
