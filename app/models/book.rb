@@ -10,7 +10,7 @@ class Book < ApplicationRecord
     people = []
     reviews.each do |review|
       book = review.book
-      related_reviews = Review.where({book_id: book.id, worth_reading: review.worth_reading})
+      related_reviews = Review.where({book_id: book.id, worth_reading: review.worth_reading}).where.not(user_id: current_user.id)
       related_reviews.each do |related_review|
         people << related_review.user
       end
