@@ -10,9 +10,10 @@ class Api::ReviewsController < ApplicationController
 
   def create
     if current_user
-      book = Book.find_by(title: params[:book].split(" (by: ")[0])
+      book_title = params[:book].split(" (by: ")[0]
+      book = Book.find_by("title LIKE ?", "#{book_title}")
       if !book
-        book = Book.create(title: params[:book].split(" (by: ")[0])
+        book = Book.create(title: book_title)
       end
       @review = Review.new(
         book_id: book.id,
