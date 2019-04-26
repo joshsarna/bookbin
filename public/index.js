@@ -137,9 +137,10 @@ var HomePage = {
         this.reviews.push(response.data);
         if (response.data.book.author === null) {
           this.moreInfoNeeded = true;
+        } else {
+          this.picked = "";
+          this.book = "";
         }
-        this.picked = "";
-        this.book = "";
       }.bind(this));
     },
     updateLastBook: function() {
