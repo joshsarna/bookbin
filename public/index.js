@@ -6,7 +6,7 @@ var BooksShow = {
     return {
       message: null,
       book: {},
-      worthReading: "",
+      picked: "",
       recommendation: false
     };
   },
