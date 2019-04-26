@@ -5,11 +5,16 @@ var BooksShow = {
   data: function() {
     return {
       message: null,
-      book: {}
+      book: {},
+      worthReading: "",
+      recommendation: false
     };
   },
   computed: {},
   created: function() {
+    if ( this.$route.query.recommendation === "true") {
+      this.recommendation = true;
+    }
     if (this.$route.params.id === '0') {
       this.message = "Sorry, we need more data before we can make a recommendation. Please review more books.";
     } else {
@@ -18,7 +23,14 @@ var BooksShow = {
       }.bind(this));
     }
   },
-  methods: {}
+  methods: {
+    addBookReview: function() {
+      let worthReading = this.picked === "worthReading" ? true : false;
+      axios.post('/api/reviews', {book: this.book.title, worth_reading: worthReading}).then(function(response) {
+        router.push("/");
+      });
+    }
+  }
 };
 
 var LogoutPage = {
@@ -159,7 +171,7 @@ var HomePage = {
     },
     getRecommendation: function() {
       axios.get('/api/books/recommendation').then(function(response) {
-        router.push('/books/' + response.data.id);
+        router.push('/books/' + response.data.id + '?recommendation=true');
       });
     }
   }

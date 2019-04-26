@@ -142,6 +142,16 @@
         <h1>{{ book.title }}</h1>
         <h3>{{ book.author }}</h3>
         <img style="width:250px;" :src="book.image_url">
+        <div v-if="recommendation">
+          <p class="already-read">
+            Already read it?
+            <input type="radio" id="worthReading" value="worthReading" v-model="picked">
+            <label for="one">Worth Reading</label>
+            <input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">
+            <label for="two">Not Worth Reading</label>
+            <button @click="addBookReview">Review Book</button>
+          </p>
+        </div>
         <p><a href="/#/"><button>Return Home</button></a></p>
       </div>
     </div>
