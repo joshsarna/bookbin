@@ -171,10 +171,10 @@ var HomePage = {
     },
     getRecommendation: function() {
       $('#loadingModal').modal('toggle');
-      $('#loadingModal').modal('toggle');
       axios.get('/api/books/recommendation').then(function(response) {
         console.log('done');
-        // router.push('/books/' + response.data.id + '?recommendation=true');
+        $('#loadingModal').modal('toggle');
+        router.push('/books/' + response.data.id + '?recommendation=true');
       });
     }
   }
