@@ -174,7 +174,7 @@ var HomePage = {
       // $('#loadingModal').modal('toggle');
       axios.get('/api/books/recommendation').then(function(response) {
         // console.log('done');
-        // router.push('/books/' + response.data.id + '?recommendation=true');
+        router.push('/books/' + response.data.id + '?recommendation=true');
       });
     }
   }
