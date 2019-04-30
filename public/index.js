@@ -36,7 +36,7 @@ var BooksShow = {
 var LogoutPage = {
   template: "<h1>Logout</h1>",
   created: function() {
-    axios.defaults.headers.common["Authorization"] = undefined;
+    axios.defaults.headers.common["Ring"] = undefined;
     localStorage.removeItem("jwt");
     router.push("/");
   }
@@ -59,7 +59,7 @@ var LoginPage = {
       axios
         .post("/api/sessions", params)
         .then(function(response) {
-          axios.defaults.headers.common["Authorization"] =
+          axios.defaults.headers.common["Ring"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           router.push("/");

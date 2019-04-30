@@ -59,7 +59,7 @@
       <label for="one">Worth Reading</label></p>
       <p><input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">
       <label for="two">Not Worth Reading</label></p>
-      <button @click="addBookReview">Review Book</button>
+      <button v-if="!moreInfoNeeded" @click="addBookReview">Review Book</button>
     </div>
 
     <div v-if="moreInfoNeeded">
