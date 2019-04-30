@@ -59,7 +59,7 @@
       <label for="one">Worth Reading</label></p>
       <p><input type="radio" id="notWorthReading" value="notWorthReading" v-model="picked">
       <label for="two">Not Worth Reading</label></p>
-      <button @click="addBookReview">Review Book</button>
+      <button v-if="!moreInfoNeeded" @click="addBookReview">Review Book</button>
     </div>
 
     <div v-if="moreInfoNeeded">
@@ -82,10 +82,9 @@
     </div>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loadingModal">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loadingModal">
       Launch demo modal
-    </button>
-
+    </button> -->
     <!-- Modal -->
     <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
