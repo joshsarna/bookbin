@@ -12,6 +12,7 @@ var BooksShow = {
   },
   computed: {},
   created: function() {
+    $( ".modal-backdrop" ).remove();
     if ( this.$route.query.recommendation === "true") {
       this.recommendation = true;
     }
@@ -173,7 +174,6 @@ var HomePage = {
       $('#loadingModal').modal('toggle');
       axios.get('/api/books/recommendation').then(function(response) {
         console.log('done');
-        $('#loadingModal').modal('toggle');
         router.push('/books/' + response.data.id + '?recommendation=true');
       });
     }
