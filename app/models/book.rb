@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 
   def self.recommendation(current_user)
     # find all of the books that current_user has reviewed
-    reviews = current_user.reviews
+    reviews = current_user.reviews.joins(:book).preload(:book)
 
     # find all of the people who have reviewed all of those books with the same review as you
     people = []
