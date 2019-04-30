@@ -128,13 +128,15 @@ var HomePage = {
   },
 
   created: function() {
+    if (!localStorage.getItem("jwt")) {
+      router.push('/login');
+    } else {
+      axios.defaults.headers.common["Ring"] =
+            "Bearer " + localStorage.getItem("jwt");
+    }
+
     axios.get('/api/reviews').then(function(response) {
       this.reviews = response.data;
-      if (!this.reviews) {
-        // console.log(this.reviews);
-        router.push('/login');
-      }
-      // console.log(this.reviews);
     }.bind(this));
     axios.get('/api/books').then(function(response) {
       this.books = response.data;
