@@ -26,7 +26,7 @@ class Book < ApplicationRecord
         end
       end
     end
-
+    
     # find which book is reviewed the most times
     book_counts = {}
     positively_reviewed_books.each do |prb|
